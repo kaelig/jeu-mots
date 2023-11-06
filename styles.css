@@ -1,0 +1,43 @@
+/* Light mode styles */
+body.light-mode {
+  background-color: #ADD8E6; /* Light blue background */
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode media query */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333;
+    color: #ADD8E6; /* Light blue text in dark mode */
+  }
+}
+
+.word-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.word-button {
+  background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
+  color: white;
+  font-size: calc(4vw + 4vh + 2vmin);
+  padding: 0.5em 1em;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+}
+
+.word-button.shimmer {
+  animation: shimmer 2.5s forwards 1;
+}
+
+/* Shimmering effect */
+@keyframes shimmer {
+  0% { background-position: -200px; }
+  100% { background-position: 200px; }
+}
+
