@@ -3,7 +3,7 @@ const staticAssets = [
   './',
   './styles.css',
   './script.js',
-  './win-sound.mp3',
+  './win-sound.m4a',
   './Dancing_Script_Latin-700.woff2',
   './Dancing_Script_Latin-ext-700.woff2',
 ];
