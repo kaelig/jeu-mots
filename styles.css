@@ -43,11 +43,9 @@ body {
   height: 100svh;
   width: 100svw;
   font-family: 'Dancing Script', cursive;
-
-  /* aspect-ratio: 1 / 1; */
+  touch-action: manipulation;
   border: none;
   outline: none;
-  /* border-radius: 9999px; */
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
   
   &::after {

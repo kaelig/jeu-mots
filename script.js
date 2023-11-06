@@ -744,7 +744,7 @@ function triggerAnimation(element, animationClassName) {
   element.classList.add(animationClassName);
 }
 
-wordButton.addEventListener('click', () => {
+wordButton.addEventListener('click', (event) => {
   showRandomWord();
   winSound.play();
   triggerAnimation(wordButton, 'radial-pulse');
