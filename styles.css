@@ -40,22 +40,16 @@ body {
   color: white;
   font-size: calc(4vw + 4vh + 2vmin);
   padding: 2em 2em;
-  height: 100svh;
-  width: 100svw;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   font-family: 'Dancing Script', cursive;
   touch-action: manipulation;
   border: none;
   outline: none;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100svw;
-    height: 100svh;
-  }
 }
 
 .word-button.radial-pulse {
