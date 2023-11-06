@@ -747,14 +747,56 @@ function triggerAnimation(element, animationClassName) {
 wordButton.addEventListener('click', () => {
   showRandomWord();
   winSound.play();
-  triggerAnimation(wordButton, 'shimmer');
+  triggerAnimation(wordButton, 'radial-pulse');
+  createConfetti(event);
 });
 
 // Trigger the animation on load
 window.addEventListener('load', () => {
   showRandomWord(); // Show the first word
+
   // Set a timeout to ensure the initial animation is applied after the page load
   setTimeout(() => {
-    triggerAnimation(wordButton, 'shimmer');
+    triggerAnimation(wordButton, 'radial-pulse');
   }, 0); // Timeout can be set to 0 to queue it after the browser has finished its current frame
 });
+
+function createConfetti(event) {
+  const confettiCount = 100;
+  const confettiWrapper = document.createElement('div');
+  confettiWrapper.classList.add('confetti-wrapper');
+  for (let i = 0; i < confettiCount; i++) {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.backgroundColor = getRandomColor();
+    confetti.style.left = `${event.clientX}px`;
+    confetti.style.top = `${event.clientY}px`;
+    confettiWrapper.appendChild(confetti);
+    animateConfetti(confetti);
+  }
+  document.body.appendChild(confettiWrapper);
+
+  // Remove confetti after it falls down
+  setTimeout(() => {
+    document.body.removeChild(confettiWrapper);
+  }, 6000); // Adjust time as needed
+}
+
+function getRandomColor() {
+  const colors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3']; // Rainbow colors
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function animateConfetti(confetti) {
+  const xEnd = Math.random() * (window.innerWidth - confetti.offsetWidth) - window.innerWidth / 2;
+  const yEnd = Math.random() * (window.innerHeight - confetti.offsetHeight) - window.innerHeight / 2;
+  confetti.animate([
+    { transform: `translate3d(0, 0, 0)`, opacity: 1 },
+    { transform: `translate3d(${xEnd}px, ${yEnd}px, 0)`, opacity: 0 }
+  ], {
+    // Timing options
+    duration: Math.random() * 3000 + 3000, // 3 to 6 seconds
+    easing: 'ease-out',
+    fill: 'forwards'
+  });
+}

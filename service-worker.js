@@ -1,10 +1,11 @@
 const cacheName = 'french-words-v1';
 const staticAssets = [
-  './', // Cache the main HTML file
+  './',
   './styles.css',
   './script.js',
   './win-sound.mp3',
-  // Add other assets here
+  './Dancing_Script_Latin-700.woff2',
+  './Dancing_Script_Latin-ext-700.woff2',
 ];
 
 self.addEventListener('install', async event => {
